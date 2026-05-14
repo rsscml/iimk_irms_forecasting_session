@@ -135,7 +135,7 @@ class RecursiveForecaster:
         if custom_objective is not None:
             params["objective"] = custom_objective
 
-        callbacks = [lgb.log_evaluation(period=0)]
+        callbacks = [lgb.log_evaluation(period=10)]
         if self.early_stopping_rounds and len(valid_sets) > 1:
             callbacks.append(lgb.early_stopping(self.early_stopping_rounds, verbose=False))
 
